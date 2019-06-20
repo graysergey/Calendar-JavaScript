@@ -83,3 +83,13 @@ btnNextMonth.addEventListener(`click`, function (evt) {
   currentMonth = (currentMonth + 1) % 12;
   showCalendar(currentYear, currentMonth);
 });
+
+// set current month
+const btnTodayMonth = document.querySelector(`#btn-today`);
+btnTodayMonth.addEventListener(`click`, function (evt) {
+  evt.preventDefault();
+  // reset current variables
+  currentYear = todayYear;
+  currentMonth = todayMonth;
+  showCalendar(currentYear, currentMonth);
+});
