@@ -107,8 +107,21 @@ tableBody.addEventListener(`click`, function (evt) {
 
 // show modal
 function showModal(idDate, id) {
+  const closeButton = modal.querySelector(`.modal-cancel-btn`);
+  // const saveButton = modal.querySelector(`.modal-save-btn`);
+
   let modalDate = modal.querySelector(`.modal-date`);
   modal.classList.add(`modal-show`);
   modal.setAttribute(`data-id`, id);
   modalDate.innerHTML = `${idDate} ${months[currentMonth]} ${currentYear}`;
+
+  closeButton.addEventListener(`click`, onCloseButton);
+  // saveButton.addEventListener(`click`, onSaveButton);
+}
+
+// close modal
+function onCloseButton() {
+  const modalText = modal.querySelector(`.modal-textarea`);
+  modalText.value = ` `; // clear textarea text
+  modal.classList.toggle(`modal-show`);
 }
