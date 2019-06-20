@@ -65,3 +65,12 @@ function showCalendar(year, month) {
   tableBody.appendChild(fragment);
 }
 showCalendar(currentYear, currentMonth);
+
+// set previous month
+const btnPreviousMonth = document.querySelector(`#btn-previous`);
+btnPreviousMonth.addEventListener(`click`, function (evt) {
+  evt.preventDefault();
+  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  showCalendar(currentYear, currentMonth);
+});
