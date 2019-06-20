@@ -1,3 +1,10 @@
 // Normalize
 @import "../../node_modules/normalize-scss/sass/_normalize.scss";
 @include normalize();
+
+// Common styles
+@import "variables";
+@import "global";
+
+// Blocks
+@import "blocks/modal";
