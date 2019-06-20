@@ -3,7 +3,7 @@ const MonthAndYear = document.querySelector(`#MonthAndYear`);
 const todayYear = today.getFullYear();
 const todayMonth = today.getMonth();
 const todayDate = today.getDate();
-// const modal = document.querySelector(`.modal`);
+const modal = document.querySelector(`.modal`);
 const months = [`Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec`];
 
 let currentYear = today.getFullYear();
@@ -95,4 +95,20 @@ btnTodayMonth.addEventListener(`click`, function (evt) {
   showCalendar(currentYear, currentMonth);
 });
 
+// Listener on Cell
+tableBody.addEventListener(`click`, function (evt) {
+  let target = evt.target;
+  let targetId = target.getAttribute(`data-id`);
+  let targetDate = target.getAttribute(`data-date`);
+  if (targetId !== null) {
+    showModal(targetDate, targetId);
+  }
+});
 
+// show modal
+function showModal(idDate, id) {
+  let modalDate = modal.querySelector(`.modal-date`);
+  modal.classList.add(`modal-show`);
+  modal.setAttribute(`data-id`, id);
+  modalDate.innerHTML = `${idDate} ${months[currentMonth]} ${currentYear}`;
+}
