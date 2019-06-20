@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/style.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Calendar</title>
+</head>
+
+<body>
+  <div class="calendar-wrapper">
+    <div class="calendar-head">
+      <h3 class="calendar-title" id="MonthAndYear">Month and Year</h3>
+      <div class="btn-wrapper">
+        <button class="calendar-btn btn" id="btn-previous" type="button">Back</button>
+        <button class="calendar-btn btn" id="btn-today" type="button">Today</button>
+        <button class="calendar-btn btn" id="btn-next" type="button">Next</button>
+      </div>
+    </div>
+    <table class="calendar-table" id="calendar">
+      <thead>
+        <tr>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wen</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+        </tr>
+      </thead>
+      <tbody class="calendar-body" id="calendar-body"></tbody>
+    </table>
+  </div>
+
+  <div class="modal" id="modal">
+    <h3 class="modal-title">Add new event</h3>
+    <p class="modal-date">Month and Year</p>
+    <textarea class="modal-textarea" type="textarea"></textarea>
+    <div class="modal-btn-wrapper">
+        <button class="modal-save-btn btn modal-btn" type="button">Save</button>
+        <button class="modal-cancel-btn btn modal-btn" type="button">Cancel</button>
+    </div>
+  </div>
+
+  <script src="./js/main.min.js"></script>
+</body>
+
+</html>
