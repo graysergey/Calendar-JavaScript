@@ -40,6 +40,7 @@ function showCalendar(year, month) {
         const span = document.createElement(`span`);
         const cellParagraph = document.createElement(`p`);
         const cellDate = document.createTextNode(date);
+        const storage = localStorage.getItem(`${date}-${months[month]}-${year}`);
 
         cell.classList.add(`cell`);
         cell.setAttribute(`data-id`, `${date}-${months[month]}-${year}`);
@@ -47,6 +48,7 @@ function showCalendar(year, month) {
         span.classList.add(`date`);
         cellParagraph.classList.add(`event-massage`);
         cellParagraph.setAttribute(`data-id`, `${date}-${months[month]}-${year}`);
+        cellParagraph.innerHTML = storage;
 
         // add class for current day
         if (year === todayYear && month === todayMonth && todayDate === date) {
@@ -133,6 +135,9 @@ function onSaveButton(evt) {
   const modalID = modal.getAttribute(`data-id`);
   const cellById = tableBody.querySelector(`td[data-id="${modalID}"]`);
   const cellParagraph = cellById.querySelector(`p`);
+
+  // set text in localStorage
+  localStorage.setItem(modalID, textEvent);
 
   // create layout text event massage
   cellParagraph.innerHTML = textEvent;
