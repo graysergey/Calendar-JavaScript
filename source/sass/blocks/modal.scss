@@ -1,3 +1,45 @@
 .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 200px;
+  min-height: 200px;
+  padding: 0 20px 20px 20px;
+  color: $color-thead;
+  border: 2px solid $color-thead;
+  background-color: $background-modal;
+}
+
+.modal-textarea {
+  flex-grow: 1;
+
+  width: 100%;
+  min-width: 20vw;
+  max-width: 70vw;
+  height: 30vh;
+  min-height: 30vh;
+  max-height: 70vh;
+  margin: 0 0 20px 0;
+  color: $color-thead;
+  background-color: $background-textarea;
+}
+
+.modal-show {
+  display: flex;
+}
+
+.modal-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.modal-date {
+  margin: 0;
 }
