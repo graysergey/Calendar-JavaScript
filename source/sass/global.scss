@@ -95,19 +95,17 @@ body {
 
     text-align: right;
     vertical-align: top;
-    transition: 0.3s;
+    transition: 0.5s;
 
     &:nth-of-type(2n+1):not(.cell-current) {
       background-color: $background-cell;
     }
 
     &.cell:hover:not(.cell-current) {
-      transform: scale(1.05);
       background-color: $hover;
     }
 
     &.cell:active:not(.cell-current) {
-      transform: scale(1);
       background-color: $hover;
     }
   }
@@ -132,13 +130,7 @@ body {
       background-color: $background-cell-curent;
 
       &:hover {
-        background-color: $background-cell-curent;
-        opacity: 0.8;
-        transform: scale(1.05);
-      }
-
-      &:active {
-        transform: scale(1);
+        background-color: $background-cell-curent-hover;
       }
     }
   }
