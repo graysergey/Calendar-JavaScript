@@ -115,7 +115,7 @@ function showModal(idDate, id) {
   let modalDate = modal.querySelector(`.modal-date`);
   modal.classList.add(`modal-show`);
   modal.setAttribute(`data-id`, id);
-  modalDate.innerHTML = `${idDate} ${months[currentMonth]} ${currentYear}`;
+  modalDate.innerHTML = idDate !== null ? `${idDate} ${months[currentMonth]} ${currentYear}` : id;
 
   closeButton.addEventListener(`click`, onCloseButton);
   saveButton.addEventListener(`click`, onSaveButton);
