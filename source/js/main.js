@@ -9,7 +9,7 @@ const months = [`Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
 let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
-let tableBody = document.querySelector(`#calendar-body`);
+let calendarBody = document.querySelector(`#calendar-body`);
 
 function showCalendar(year, month) {
   const firstDay = (new Date(year, month)).getDay();
@@ -18,7 +18,7 @@ function showCalendar(year, month) {
   monthAndYear.innerHTML = `${months[month]} ${year}`;
 
   // clear calendar rows
-  tableBody.innerHTML = ``;
+  calendarBody.innerHTML = ``;
 
   // creating cells
   let date = 1;
@@ -64,7 +64,7 @@ function showCalendar(year, month) {
     }
     fragment.appendChild(row);
   }
-  tableBody.appendChild(fragment);
+  calendarBody.appendChild(fragment);
 }
 showCalendar(currentYear, currentMonth);
 
@@ -98,7 +98,7 @@ btnTodayMonth.addEventListener(`click`, function (evt) {
 });
 
 // Listener on Cell
-tableBody.addEventListener(`click`, function (evt) {
+calendarBody.addEventListener(`click`, function (evt) {
   let target = evt.target;
   let targetId = target.getAttribute(`data-id`);
   let targetDate = target.getAttribute(`data-date`);
@@ -133,7 +133,7 @@ function onSaveButton(evt) {
   evt.preventDefault();
   const textEvent = modal.querySelector(`.modal-textarea`).value;
   const modalID = modal.getAttribute(`data-id`);
-  const cellById = tableBody.querySelector(`td[data-id="${modalID}"]`);
+  const cellById = calendarBody.querySelector(`td[data-id="${modalID}"]`);
   const cellParagraph = cellById.querySelector(`p`);
 
   // set text in localStorage
