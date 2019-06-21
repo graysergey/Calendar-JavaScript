@@ -5,10 +5,11 @@ const todayMonth = today.getMonth();
 const todayDate = today.getDate();
 const modal = document.querySelector(`.modal`);
 const months = [`Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec`];
+const notRealDateOfMonth = 33; // for a formula, you need any number more than 32. Not real day of the month
 
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
-let daysInMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
+let daysInMonth = notRealDateOfMonth - new Date(currentYear, currentMonth, notRealDateOfMonth).getDate();
 let calendarBody = document.querySelector(`#calendar-body`);
 
 function showCalendar(year, month) {
@@ -22,12 +23,14 @@ function showCalendar(year, month) {
 
   // creating cells
   let date = 1;
+  const rows = 6;
+  const daysInWeek = 7;
   let fragment = document.createDocumentFragment();
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < rows; i++) {
     let row = document.createElement(`tr`);
 
     // creating cels in row
-    for (let j = 0; j < 7; j++) {
+    for (let j = 0; j < daysInWeek; j++) {
       if (i === 0 && j < firstDay) {
         let cell = document.createElement(`td`);
         let cellText = document.createTextNode(``);
@@ -68,12 +71,15 @@ function showCalendar(year, month) {
 }
 showCalendar(currentYear, currentMonth);
 
+const year = 1;
+const month = 1;
+const monthsInYear = 11;
 // set previous month
 const btnPreviousMonth = document.querySelector(`#btn-previous`);
 btnPreviousMonth.addEventListener(`click`, function (evt) {
   evt.preventDefault();
-  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  currentYear = (currentMonth === 0) ? currentYear - year : currentYear;
+  currentMonth = (currentMonth === 0) ? monthsInYear : currentMonth - month;
   showCalendar(currentYear, currentMonth);
 });
 
@@ -81,8 +87,8 @@ btnPreviousMonth.addEventListener(`click`, function (evt) {
 const btnNextMonth = document.querySelector(`#btn-next`);
 btnNextMonth.addEventListener(`click`, function (evt) {
   evt.preventDefault();
-  currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-  currentMonth = (currentMonth + 1) % 12;
+  currentYear = (currentMonth === monthsInYear) ? currentYear + year : currentYear;
+  currentMonth = (currentMonth + month) % 12;
   showCalendar(currentYear, currentMonth);
 });
 
