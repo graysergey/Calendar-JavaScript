@@ -1,5 +1,5 @@
 const today = new Date();
-const MonthAndYear = document.querySelector(`#MonthAndYear`);
+const monthAndYear = document.querySelector(`#monthAndYear`);
 const todayYear = today.getFullYear();
 const todayMonth = today.getMonth();
 const todayDate = today.getDate();
@@ -15,7 +15,7 @@ function showCalendar(year, month) {
   const firstDay = (new Date(year, month)).getDay();
 
   // set title - month and year
-  MonthAndYear.innerHTML = `${months[month]} ${year}`;
+  monthAndYear.innerHTML = `${months[month]} ${year}`;
 
   // clear calendar rows
   tableBody.innerHTML = ``;
