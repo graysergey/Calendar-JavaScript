@@ -95,7 +95,7 @@ body {
 
     text-align: right;
     vertical-align: top;
-    transition: 0.5s;
+    transition: 0.3s;
 
     &:nth-of-type(2n+1):not(.cell-current) {
       background-color: $background-cell;
