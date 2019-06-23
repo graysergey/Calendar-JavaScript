@@ -1,18 +1,17 @@
 ## You can see the result here https://yushchenko.dev/event-calendar.html
 
-## Gulp 4 boilerplate
+## Calendar of events
 
 1. Clone:
 
     ```
-    git clone git@github.com:regulyarniy/gulp-boilerplate.git
+    git@github.com:graysergey/Calendar-JavaScript.git
     ```
 
 2. Install prerequisites:
 
     ```
-    cd gulp-boilerplate
-    npm install
+    npm i --save-dev
     ```
 
 * Start dev server with hot reload:
